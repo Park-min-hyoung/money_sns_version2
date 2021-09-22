@@ -17,7 +17,7 @@
     --font-txt: 60px;
   
     /* transition__druation */
-    --base-duration: 300ms;
+    --base-duration: all 300ms ease-in-out;
   }
   * {
     padding: 0;
@@ -65,16 +65,13 @@
     z-index: 99;
     background-color: var(--color-black);
   }
-  .header__title {
-    font-family: "Orbitron", sans-serif;
-  }
   #header__wrap a {
     color: var(--color-white);
   }
   .header__top__wrap {
     width: 100%;
   }
-  .header__top {
+  .header__top__title {
     max-width: 1200px;
     height: 100px;
     text-align: center;
@@ -83,7 +80,10 @@
     font-size: var(--font-biglogo);
     position: relative;
   }
-  .menu__btn {
+  .header__top__title span {
+    font-family: "Orbitron", sans-serif;
+  }
+  .hearder__top__btn {
     width: 50px;
     height: 50px;
     font-size: var(--font-biglogo);
@@ -99,75 +99,68 @@
     width: 100%;
     border-top: 1px solid var(--color-bordergrey);
     border-bottom: 1px solid var(--color-bordergrey);
-  }
-  .header__bot {
     max-width: 1200px;
     margin: 15px auto;
   }
+
   .header__bot__container {
     width: 60%;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
   }
-  .login__wrap,
-  .logout__wrap {
+  .login__btns,
+  .logout__btns {
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
-  .login__wrap li,
-  .logout__wrap li {
-    width: 50%;
+  .login__btns li,
+  .logout__btns li {
+    width: 200px;
     border: 1px solid var(--color-white);
     text-align: center;
     border-radius: 30px;
     margin: auto 20px;
   }
-  .login__wrap .sign
-  .logout__wrap .logout {
-    border: 1px solid var(--color-orange);
-    transition: var(--base-duration);
-  }
-  .sign__a,
-  .logout__a {
-    color: var(--color-orange);
-    transition: var(--base-duration);
-  }
-  .login__wrap a,
-  .logout__wrap a {
+  .login__btns a,
+  .logout__btns a {
     height: 100%;
     font-size: var(--font-basetext);
     display: block;
     line-height: 32px;
   }
-  .sign:hover,
+  .login__btns .login__btns__sign {
+    border: 1px solid var(--color-orange);
+    transition: var(--base-duration);
+  }
+  .sign-btn {
+    color: var(--color-orange);
+    transition: var(--base-duration);
+  }
+  .login__btns__sign:hover,
   .logout:hover {
     background-color: var(--color-orange);
   }
-  .sign:hover .sign__a,
+  .login__btns__sign:hover .sign-btn,
   .logout:hover .logout__a {
     color: var(--color-white);
   }
   
-  .section__title__wrap {
+  .intro__title {
     width: 100%;
     margin-bottom: 35px;
+    font-weight: 700;
   }
-  .txt__harfline {
-    width: 100%;
-  }
-  .txt {
+  .intro__title__txt {
     font-size: var(--font-txt);
     color: var(--color-white);
   }
-  .half-line {
+  .intro__title__half-line {
     display: inline-block;
     position: relative;
     width: 100%;
   }
-  .half-line::before {
+  .intro__title__half-line::before {
     display: inline-block;
     content: "";
     width: 100%;
@@ -212,40 +205,34 @@
     justify-content: space-between;
     align-items: center;
   }
-  .footer__titles {
-    display: inline-block; /* inline의 한줄에 줄 세우기 + block의 너비, 높이, 마진, 패딩 지정 기능 */
-  }
   
-  .footer__logo {
+  .footer__introduce__logo__link {
     display: flex;
     align-items: center; /* flex 속성의 수직 정렬 */
     font-size: var(--font-headermenu);
   }
-  .footer__logo i {
+  .footer__introduce__logo__link i {
     color: var(--color-white);
     padding: 0 14px;
     transform: scale(1.5); /* 로고 사이즈  조절*/
   }
-  .footer__logo__title {
+  .footer__introduce__logo__title {
     color: var(--color-dark-white);
   }
-  .footer__btns__wrap {
+  .footer__introduce__btns {
     display: flex;
     font-size: var(--font-basetext);
     margin-top: 10px;
   }
-  .footer__btns__wrap a {
-    color: var(--color-dark-white);
-  }
-  .footer__btns__wrap li {
+   .footer__introduce__btns li {
     display: inline-block;
     position: relative;
     padding: 0 8px;
   }
-  .footer__btns__wrap li:first-child::before { /* 처음에는 구분선이 없으므로*/
+  .footer__introduce__btns li:first-child::before { /* 처음에는 구분선이 없으므로*/
     display: none;
   }
-  .footer__btns__wrap li::before { /* 구분선 넣기 */
+  .footer__introduce__btns li::before { /* 구분선 넣기 */
     display: inline-block;
     content: "";
     position: absolute;
@@ -256,23 +243,25 @@
     vertical-align: middle;
     height: 15px;
   }
-  
-  .footer__info__wrap,
-  .footer__info__wrap a {
+  .footer__introduce__btns a {
     color: var(--color-dark-white);
   }
-  .footer__info__wrap {
+  .footer__introduce__info,
+  .footer__introduce__info a {
+    color: var(--color-dark-white);
+  }
+  .footer__introduce__info {
     font-size: var(--font-basetext);
     padding: 0 8px;
     margin-top: 10px;
   }
-  .footer__info__wrap li {
+  .footer__introduce__info li {
     margin-bottom: 10px;
   }
-  .icon__item__wrap {
+  .footer__btns {
     display: flex;
   }
-  .icon__item {
+  .footer__btn {
     width: 50px;
     height: 50px;
     border: 1px solid var(--color-dark-white);
@@ -283,23 +272,23 @@
     border-radius: 30%;
     transition: var(--base-duration);
   }
-  .icon__item i {
+  .footer__btn i {
     transition: var(--base-duration);
     color: var(--color-white);
     line-height: 48px;
   }
-  .icon__item:last-child {
+  .footer__btn:last-child {
     margin-right: 0;
   }
-  .icon__item:hover {
+  .footer__btn:hover {
     transform: scale(1.2);
     border: 1px solid var(--color-red);
   }
-  .icon__item:hover i {
+  .footer__btn:hover i {
     transform: rotateY(360deg);
     color: var(--color-red);
   }
-  .icon__item a {
+  .footer__btn a {
     font-size: var(--font-headermenu);
     display: block;
     width: 100%;
@@ -360,15 +349,12 @@
     .menu__btn {
       display: block;
     }
+
     /* footer */
     .footer__container {
       height: 250px;
       flex-direction: column;
       padding: 10px;
-    }
-    .footer__title__wrap {
-      width: 100%;
-      text-align: center;
     }
     .footer__logo {
       margin-right: 15px;
